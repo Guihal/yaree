@@ -1,0 +1,140 @@
+<script>
+    
+    function deliveryForms(){
+            const deliveryFormBlock = document.querySelector('#city-searchbox');
+            const deliveryFormCheckboxBlock = document.querySelector('#delivery-services-wrapper');
+            
+
+            if(deliveryFormBlock &&  deliveryFormCheckboxBlock){
+                const deliveryFormCheckbox = deliveryFormCheckboxBlock.querySelectorAll('.t-radio');
+                const deliveryFormCheckboxLadel = deliveryFormCheckboxBlock.querySelectorAll('.t-radio__control');
+                const deliveryFormText = deliveryFormBlock.querySelector('.t-input-description');
+
+                if(deliveryFormText && deliveryFormCheckbox && deliveryFormCheckboxLadel){
+
+                    if(deliveryFormText.textContent.includes("Беларусь, Минский район, Минск")  || deliveryFormText.textContent.includes("Belarus, Minsk region, Minsk")){
+                            console.log('fff');
+                            for(let i = 0; i < deliveryFormCheckbox.length; i++){
+                                    if(deliveryFormCheckbox[i].value.includes("Самовывоз")){
+                                            deliveryFormCheckboxLadel[i].style.display = "table";
+                                    } else if(deliveryFormCheckbox[i].value.includes("Курьер до двери по Минску")){
+                                            deliveryFormCheckboxLadel[i].style.display = "table";
+                                    } else if(deliveryFormCheckbox[i].value.includes("РБ курьер до двери")){
+                                            deliveryFormCheckboxLadel[i].style.display = "table";
+                                    } else if(deliveryFormCheckbox[i].value.includes("РБ Европочта до ПВЗ")){
+                                            deliveryFormCheckboxLadel[i].style.display = "table";
+                                    } else {
+                                            deliveryFormCheckboxLadel[i].style.display = "none";
+                                    }
+                            }
+                            
+                            const deliveryFormCityBlock = document.querySelector('#street-searchbox');
+                            if(deliveryFormCityBlock){
+                                const deliveryFormCity = deliveryFormCityBlock.querySelector('.searchbox-input');
+                                const deliveryFormCityList = deliveryFormCityBlock.querySelector('.searchbox-list');
+                                const deliveryFormCityErr = deliveryFormCityBlock.querySelector('.t-input-group');
+                                
+                                
+                                if(deliveryFormCity && deliveryFormCityList && deliveryFormCityErr){
+                                    if(deliveryFormCityErr.classList.contains("js-error-control-box")){
+                                        deliveryFormCityErr.classList.remove("js-error-control-box")
+                                    }
+                                    deliveryFormCityList.style.display = "none";
+                                    deliveryFormCityList.style.opacity = "0";
+                                    deliveryFormCity.dataset.optionSelected = "true";
+                                }
+                            }
+
+                    } else if((deliveryFormText.textContent.includes("Беларусь") && !deliveryFormText.textContent.includes("Россия")) || (deliveryFormText.textContent.includes("Belarus") && !deliveryFormText.textContent.includes("Russia"))){
+                                    console.log('fff');
+                            for(let i = 0; i < deliveryFormCheckbox.length; i++){
+                                    if(deliveryFormCheckbox[i].value.includes("РБ Европочта до ПВЗ")){
+                                            deliveryFormCheckboxLadel[i].style.display = "table";
+                                    }
+                                    else if(deliveryFormCheckbox[i].value.includes("РБ курьер до двери")){
+                                            deliveryFormCheckboxLadel[i].style.display = "table";
+                                    }
+                                     else {
+                                            deliveryFormCheckboxLadel[i].style.display = "none";
+                                    }
+
+                                  }
+                                  
+                                   const deliveryFormCityBlock = document.querySelector('#street-searchbox');
+                            if(deliveryFormCityBlock){
+                                const deliveryFormCity = deliveryFormCityBlock.querySelector('.searchbox-input');
+                                const deliveryFormCityList = deliveryFormCityBlock.querySelector('.searchbox-list');
+                                const deliveryFormCityErr = deliveryFormCityBlock.querySelector('.t-input-group');
+                                
+                                
+                                if(deliveryFormCity && deliveryFormCityList && deliveryFormCityErr){
+                                    if(deliveryFormCityErr.classList.contains("js-error-control-box")){
+                                        deliveryFormCityErr.classList.remove("js-error-control-box")
+                                    }
+                                    deliveryFormCityList.style.display = "none";
+                                    deliveryFormCityList.style.opacity = "0";
+                                    deliveryFormCity.dataset.optionSelected = "true";
+                                }
+                            }
+                    } else if(deliveryFormText.textContent.includes("Россия") || deliveryFormText.textContent.includes("Russia")){
+                                console.log('fff');
+                            for(let i = 0; i < deliveryFormCheckbox.length; i++){
+                                    if(deliveryFormCheckbox[i].value.includes("РФ СДЭК до ПВЗ")){
+                                            deliveryFormCheckboxLadel[i].style.display = "table";
+                                    } else if(deliveryFormCheckbox[i].value.includes("РФ СДЭК до двери")){
+                                            deliveryFormCheckboxLadel[i].style.display = "table";
+                                    }  else {
+                                            deliveryFormCheckboxLadel[i].style.display = "none";
+                                    }
+                            }
+                             const deliveryFormCityBlock = document.querySelector('#street-searchbox');
+                            if(deliveryFormCityBlock){
+                                const deliveryFormCity = deliveryFormCityBlock.querySelector('.searchbox-input');
+                                const deliveryFormCityList = deliveryFormCityBlock.querySelector('.searchbox-list');
+                                
+                                
+                                if(deliveryFormCity && deliveryFormCityList){
+                                    deliveryFormCityList.style.display = "block";
+                                    deliveryFormCityList.style.opacity = "1";
+                                    deliveryFormCity.dataset.optionSelected = "true";
+                                }
+                            }
+                    } else if((!deliveryFormText.textContent.includes("Россия") && !deliveryFormText.textContent.includes("Беларусь")) || (!deliveryFormText.textContent.includes("Russia") && !deliveryFormText.textContent.includes("Belarus"))){
+                                console.log('fff');
+                            for(let i = 0; i < deliveryFormCheckbox.length; i++){
+                                    if(deliveryFormCheckbox[i].value.includes("Белпочта международная доставка")){
+                                            deliveryFormCheckboxLadel[i].style.display = "table";
+                                    } else if(deliveryFormCheckbox[i].value.includes("Белпочта международная доставка экспресс")){
+                                            deliveryFormCheckboxLadel[i].style.display = "table";
+                                    } else {
+                                            deliveryFormCheckboxLadel[i].style.display = "none";
+                                    }
+                            }
+                              const deliveryFormCityBlock = document.querySelector('#street-searchbox');
+                            if(deliveryFormCityBlock){
+                                const deliveryFormCity = deliveryFormCityBlock.querySelector('.searchbox-input');
+                                const deliveryFormCityList = deliveryFormCityBlock.querySelector('.searchbox-list');
+                                
+                                
+                                if(deliveryFormCity && deliveryFormCityList){
+                                    deliveryFormCityList.style.display = "block";
+                                    deliveryFormCityList.style.opacity = "1";
+                                    deliveryFormCity.dataset.optionSelected = "true";
+                                }
+                            }
+                    }
+                }
+            }
+
+    }
+
+    let setIntervalDeliveryForms = setInterval(deliveryForms, 10);
+
+
+
+
+
+
+
+</script>
+
